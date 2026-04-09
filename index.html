@@ -705,13 +705,14 @@
         fetchSteamPlayers();
         setInterval(fetchSteamPlayers, 60000);
 
+        // DATA TERMINAL LOGIC
         const DATA_LINKS = {
             cup_standings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRaElymkI-WS9GjMW-A-F2rFB5yx6dnxBzn2wp7zhOC-sT8HE5bYJ-7p3wG6bgEXc3RAgPtbhA_7vr4/pubhtml?widget=true&headers=false",
             xfinity_standings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRPIqR_e5XKwFdlUSvcSSUyVgfdp3OWjLZgkYZi7lptGstgQnlmglCRW4wwdGXQlQAmlvBCEzk9MSq8/pubhtml?widget=true&headers=false",
             roster: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSXEurKQD7_295whkYC5zgWEQXc6ghV9-H3WAVTtMHWDN-dTBYU9sLwTrf4ZWXUIR5bfmiIt84PqtUn/pubhtml?widget=true&headers=false",
             cup_ratings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTa6EUPjd0V8B5Zj7z6wrSMfZnEHKF0FvdnXSREJaWXcAFKmaRF-X9yA-0a-D7S00XT6aGjZezKhXHb/pubhtml?widget=true&headers=false",
-            xfinity_ratings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT39hNq-q_937MscQ5G6V9nI5a1SjI2mH4W-fN-G0O5S00XT6aGjZezKhXHb/pubhtml?widget=true&headers=false",
-            setups: "https://docs.google.com/spreadsheets/d/e/2PACX-1vS6y_NnE_F9D5nS3G9W3aI9X0j_S7S_f-N0O5S00XT6aGjZezKhXHb/pubhtml?widget=true&headers=false"
+            xfinity_ratings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTbJuxXq-KQErTDJ26ig8Bamih1Zc2qzWHUhzcs2wWCV8CQgGkdBZjwCC90mckOyJbNh3RQrkHfAMIp/pubhtml?widget=true&headers=false",
+            setups: "https://docs.google.com/presentation/d/e/2PACX-1vR-UxAX8Ahq3kDNZ5gqLK-LwvbbwH5ry9l40z-cLQvDlQ4MT2GZDSOvWxgMyHKX2Q/embed"
         };
 
         function syncData(key) {
