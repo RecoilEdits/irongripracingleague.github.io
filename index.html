@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IRON GRIP RACING LEAGUE | Official Hub</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏁</text></svg>">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Barlow+Condensed:ital,wght@0,700;1,900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -11,7 +14,19 @@
     
     <style>
         :root { --ig-blue: #0084ff; --ig-red: #ff0040; --ig-bg: #050505; --ig-twitch: #a970ff; }
-        body { background-color: var(--ig-bg); color: #e4e4e7; font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        
+        body { 
+            background-color: var(--ig-bg); 
+            color: #e4e4e7; 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
+            cursor: crosshair; 
+        }
+        a:hover, button:hover, .sidebar-item:hover, .clickable:hover, input[type=range]::-webkit-slider-thumb { 
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' style='font-size: 24px;'><text y='20'>🏁</text></svg>"), pointer !important; 
+        }
+
         .font-racing { font-family: 'Orbitron', sans-serif; }
         .font-impact { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; }
         .glass { background: rgba(20, 20, 20, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
@@ -38,6 +53,29 @@
         
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .loader { border: 3px solid rgba(255,255,255,0.1); border-top: 3px solid var(--ig-blue); border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; display: inline-block; }
+
+        /* STRATEGY LAB PRO STYLING */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; margin: 10px 0; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: rgba(255,255,255,0.1); border-radius: 4px; border: 1px solid rgba(0,0,0,0.5); }
+        input[type=range]::-webkit-slider-thumb { border: 2px solid #050505; height: 20px; width: 20px; border-radius: 50%; background: var(--ig-blue); cursor: pointer; -webkit-appearance: none; margin-top: -8px; box-shadow: 0 0 10px rgba(0, 132, 255, 0.5); }
+        input[type=range]:focus { outline: none; }
+        
+        .strategy-box { transition: all 0.3s ease; }
+        .strategy-box.active-strat { border-color: #10b981; background: rgba(16, 185, 129, 0.05); box-shadow: 0 0 20px rgba(16, 185, 129, 0.1); }
+        
+        .timeline-container { position: relative; width: 100%; height: 24px; background: #111; border-radius: 12px; overflow: hidden; border: 1px solid #222; }
+        .timeline-fill { position: absolute; height: 100%; background: linear-gradient(90deg, #0084ff, #10b981); opacity: 0.3; }
+        .pit-marker { position: absolute; top: 0; width: 4px; height: 100%; background: #ff0040; box-shadow: 0 0 8px #ff0040; transform: translateX(-50%); z-index: 10; }
+        .pit-label { position: absolute; top: 28px; transform: translateX(-50%); font-size: 9px; font-weight: 900; color: #ff0040; text-transform: uppercase; white-space: nowrap; }
+        
+        /* NEW FOR PRO: Stage Visualization */
+        .stage-zone-1 { background: rgba(234, 179, 8, 0.1); position: absolute; height: 100%; border-right: 1px dashed rgba(234, 179, 8, 0.4); }
+        .stage-zone-2 { background: rgba(59, 130, 246, 0.1); position: absolute; height: 100%; border-right: 1px dashed rgba(59, 130, 246, 0.4); }
+        .stage-marker { position: absolute; top: 0; width: 2px; height: 100%; background: #eab308; z-index: 5; }
+        .stage-label { position: absolute; top: -14px; transform: translateX(-50%); font-size: 8px; font-weight: 900; color: #eab308; text-transform: uppercase; }
+        
+        @keyframes alert-blink { 50% { opacity: 0.5; } }
+        .alert-blink { animation: alert-blink 1s infinite; }
     </style>
 </head>
 <body class="flex min-h-screen">
@@ -52,6 +90,7 @@
             <a href="#live-data" class="sidebar-item"><i class="fas fa-terminal w-5"></i> Data Terminal</a>
             <a href="#schedule" class="sidebar-item"><i class="fas fa-calendar-alt w-5"></i> Schedule</a>
             <a href="#rules" class="sidebar-item"><i class="fas fa-gavel w-5"></i> IGRCC Rules</a>
+            <a href="#strategy-lab" class="sidebar-item"><i class="fas fa-microchip w-5"></i> Strategy Lab</a>
             <a href="#paint-schemes" class="sidebar-item"><i class="fas fa-palette w-5"></i> Paint Schemes</a>
             <a href="#streamers" class="sidebar-item"><i class="fas fa-video w-5"></i> Streamers</a>
             <div class="pt-8 px-2 text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-4">Official Links</div>
@@ -151,6 +190,7 @@
                 </div>
             </div>
         </section>
+
 
         <section id="rules" class="py-20 px-10 max-w-7xl mx-auto border-t border-zinc-900">
     <div class="text-center mb-16">
@@ -351,9 +391,153 @@
     </div>
 </section>
 
+
+        <section id="strategy-lab" class="py-20 px-10 max-w-7xl mx-auto border-t border-zinc-900">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+                <div>
+                    <h2 class="font-impact text-6xl italic text-white mb-2">STRATEGY <span class="text-emerald-500">LAB PRO</span></h2>
+                    <p class="text-zinc-500 text-[10px] font-black uppercase tracking-[0.4em] flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        NASCAR 25 Beta IGRL Stradegy Lab WIP
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+                
+                <div class="xl:col-span-4 glass p-8 rounded-2xl border border-zinc-800 space-y-8">
+                    <h3 class="font-impact text-2xl italic text-emerald-500 border-b border-zinc-800 pb-2">SIMULATION PARAMS</h3>
+                    
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <label class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Total Race Distance</label>
+                            <span id="val-laps" class="text-white font-racing text-sm">100 Laps</span>
+                        </div>
+                        <input type="range" id="sl-laps" min="10" max="300" value="100" oninput="updateLab()">
+                    </div>
+
+                    <div class="pt-4 border-t border-zinc-800/50 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <label class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Stage Logic</label>
+                            <button id="stage-toggle" onclick="toggleStage()" class="px-4 py-1.5 bg-zinc-800 text-[9px] font-black rounded uppercase border border-zinc-700 text-zinc-400 hover:text-white transition-all">OFF</button>
+                        </div>
+                        
+                        <div id="stage-inputs" class="hidden space-y-6 bg-black/30 p-4 rounded-xl border border-zinc-800/50">
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <label class="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Stage 1 Length</label>
+                                    <span id="val-s1" class="text-yellow-500 font-racing text-xs">25 Laps</span>
+                                </div>
+                                <input type="range" id="sl-s1" min="5" max="100" value="25" oninput="updateLab()">
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <label class="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Stage 2 Length</label>
+                                    <span id="val-s2" class="text-yellow-500 font-racing text-xs">25 Laps</span>
+                                </div>
+                                <input type="range" id="sl-s2" min="5" max="100" value="25" oninput="updateLab()">
+                            </div>
+                            <div class="p-3 bg-zinc-900/50 rounded border border-zinc-800">
+                                <p class="text-[8px] text-zinc-500 uppercase font-black tracking-widest">Break Lap Summary</p>
+                                <div class="flex justify-between mt-2 font-racing text-[10px]">
+                                    <span class="text-yellow-600">S1 End: Lap <span id="s1-summary">25</span></span>
+                                    <span class="text-blue-500">S2 End: Lap <span id="s2-summary">50</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 border-t border-zinc-800 pt-6">
+                        <div class="flex justify-between">
+                            <label class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Fuel Window (Pushing)</label>
+                            <span id="val-fuel" class="text-white font-racing text-sm">35 Laps</span>
+                        </div>
+                        <input type="range" id="sl-fuel" min="10" max="100" value="35" oninput="updateLab()">
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <label class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Fuel Save Potential</label>
+                            <span id="val-save" class="text-emerald-400 font-racing text-sm">+3 Laps</span>
+                        </div>
+                        <input type="range" id="sl-save" min="0" max="15" value="3" oninput="updateLab()">
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <label class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Tire Wear / Lap</label>
+                            <span id="val-wear" class="text-purple-400 font-racing text-sm">0.8%</span>
+                        </div>
+                        <input type="range" id="sl-wear" min="0.1" max="2.0" step="0.1" value="0.8" oninput="updateLab()">
+                    </div>
+                </div>
+
+                <div class="xl:col-span-8 space-y-8">
+                    
+                    <div class="glass p-10 rounded-2xl border border-zinc-800 flex flex-col md:flex-row items-center gap-10 overflow-hidden relative">
+                        <div id="eng-bg-alert" class="absolute inset-0 opacity-0 transition-opacity duration-300 bg-red-600/10 pointer-events-none"></div>
+                        <div class="w-40 h-40 rounded-full border-8 border-zinc-900 flex items-center justify-center relative shadow-2xl z-10">
+                             <div class="absolute inset-0 rounded-full border-t-8 border-emerald-500 animate-spin-slow"></div>
+                             <div class="text-center">
+                                <span id="eng-tire" class="font-racing text-4xl text-white">--</span>
+                                <p class="text-[8px] font-black text-zinc-500 uppercase tracking-tighter">Estimated Wear/Stint</p>
+                             </div>
+                        </div>
+                        <div class="flex-1 text-center md:text-left z-10">
+                            <p class="text-[10px] font-black text-zinc-500 uppercase tracking-[0.4em] mb-2">Race Engineer Strategy Advice</p>
+                            <h2 id="eng-directive" class="font-impact text-4xl italic text-white leading-tight">INITIALIZING TELEMETRY...</h2>
+                            <p id="eng-subtext" class="text-zinc-400 text-[11px] mt-4 font-bold uppercase tracking-widest max-w-md mx-auto md:mx-0">Calculating most efficient fuel load for current stage configuration.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass p-6 rounded-2xl border border-zinc-800 border-t-4 border-t-zinc-600">
+                            <h3 class="font-impact text-2xl italic text-white flex justify-between">PUSH STRAT <i class="fas fa-fire text-red-500 text-lg"></i></h3>
+                            <div class="mt-4 grid grid-cols-2 gap-4">
+                                <div class="bg-black/40 p-3 rounded">
+                                    <p class="text-[9px] text-zinc-500 font-black uppercase">Pit Stops</p>
+                                    <p id="push-stops" class="font-racing text-2xl text-white">--</p>
+                                </div>
+                                <div class="bg-black/40 p-3 rounded">
+                                    <p class="text-[9px] text-zinc-500 font-black uppercase">Avg Stint</p>
+                                    <p id="push-stint" class="font-racing text-xl text-white">-- Laps</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass p-6 rounded-2xl border border-zinc-800 border-t-4 border-t-emerald-500">
+                            <h3 class="font-impact text-2xl italic text-white flex justify-between">FUEL MASTER <i class="fas fa-leaf text-emerald-500 text-lg"></i></h3>
+                            <div class="mt-4 grid grid-cols-2 gap-4">
+                                <div class="bg-black/40 p-3 rounded border border-emerald-900/30">
+                                    <p class="text-[9px] text-zinc-500 font-black uppercase">Pit Stops</p>
+                                    <p id="save-stops" class="font-racing text-2xl text-emerald-500">--</p>
+                                </div>
+                                <div class="bg-black/40 p-3 rounded border border-emerald-900/30">
+                                    <p class="text-[9px] text-zinc-500 font-black uppercase">Max Stint</p>
+                                    <p id="save-stint" class="font-racing text-xl text-emerald-400">-- Laps</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass p-8 rounded-2xl border border-zinc-800">
+                        <div class="flex justify-between items-center mb-10">
+                            <span class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">RACE TIMELINE (STRATEGY VISUALIZER)</span>
+                            <div class="flex gap-4">
+                                <span class="text-[9px] font-black text-red-500 uppercase flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> PIT WINDOW</span>
+                                <span class="text-[9px] font-black text-yellow-500 uppercase flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> STAGE END</span>
+                            </div>
+                        </div>
+                        <div class="timeline-container mb-6" id="race-timeline"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
  <section id="paint-schemes" class="py-16 px-10 max-w-7xl mx-auto border-t border-zinc-900">
             <h2 class="font-impact text-6xl italic text-white mb-2 text-center">PAINT <span class="text-blue-500">SCHEMES</span></h2>
-            <p class="text-zinc-500 text-xs font-black text-center uppercase tracking-[0.4em] mb-12">Official Design Guides by KickSave_Dave</p>
+            <p class="text-zinc-500 text-xs font-black text-center uppercase tracking-[0.4em] mb-12">Official Design Guides by KickSaveDave</p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="glass rounded-xl overflow-hidden border border-zinc-800 hover:border-blue-500 transition-colors">
@@ -526,30 +710,192 @@
             xfinity_standings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRPIqR_e5XKwFdlUSvcSSUyVgfdp3OWjLZgkYZi7lptGstgQnlmglCRW4wwdGXQlQAmlvBCEzk9MSq8/pubhtml?widget=true&headers=false",
             roster: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSXEurKQD7_295whkYC5zgWEQXc6ghV9-H3WAVTtMHWDN-dTBYU9sLwTrf4ZWXUIR5bfmiIt84PqtUn/pubhtml?widget=true&headers=false",
             cup_ratings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTa6EUPjd0V8B5Zj7z6wrSMfZnEHKF0FvdnXSREJaWXcAFKmaRF-X9yA-0a-D7S00XT6aGjZezKhXHb/pubhtml?widget=true&headers=false",
-            xfinity_ratings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTbJuxXq-KQErTDJ26ig8Bamih1Zc2qzWHUhzcs2wWCV8CQgGkdBZjwCC90mckOyJbNh3RQrkHfAMIp/pubhtml?widget=true&headers=false",
-            setups: "https://docs.google.com/presentation/d/e/2PACX-1vR-UxAX8Ahq3kDNZ5gqLK-LwvbbwH5ry9l40z-cLQvDlQ4MT2GZDSOvWxgMyHKX2Q/embed"
+            xfinity_ratings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT39hNq-q_937MscQ5G6V9nI5a1SjI2mH4W-fN-G0O5S00XT6aGjZezKhXHb/pubhtml?widget=true&headers=false",
+            setups: "https://docs.google.com/spreadsheets/d/e/2PACX-1vS6y_NnE_F9D5nS3G9W3aI9X0j_S7S_f-N0O5S00XT6aGjZezKhXHb/pubhtml?widget=true&headers=false"
         };
 
         function syncData(key) {
             const output = document.getElementById('data-output');
             const status = document.getElementById('data-status');
             output.innerHTML = ""; status.classList.remove('hidden');
-            const iframe = document.createElement('iframe'); iframe.src = DATA_LINKS[key];
-            iframe.className = "w-full h-full absolute top-0 left-0 border-none";
             const container = document.createElement('div'); container.className = "iframe-viewport";
-            container.appendChild(iframe); iframe.onload = () => { status.classList.add('hidden'); };
-            output.appendChild(container);
+            const iframe = document.createElement('iframe'); iframe.src = DATA_LINKS[key]; iframe.onload = () => status.classList.add('hidden');
+            container.appendChild(iframe); output.appendChild(container);
         }
 
         const streamers = ['RecoilEdits', 'kyalami_rs3', 'sterfrie15', 'tyrantslayerstudiosct', 'pumpkinswag', 'kilohq', 'thedczac'];
         const twitchGrid = document.getElementById('twitch-grid');
-        streamers.forEach(channel => {
+        streamers.forEach(ch => {
             const card = document.createElement('div'); card.className = 'stream-card';
-            const label = document.createElement('div'); label.className = 'streamer-label'; label.innerText = channel;
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://player.twitch.tv/?channel=${channel}&parent=recoiledits.github.io&autoplay=false&muted=true`;
-            iframe.allowFullscreen = true; card.appendChild(iframe); twitchGrid.appendChild(card);
+            card.innerHTML = `<iframe src="https://player.twitch.tv/?channel=${ch}&parent=recoiledits.github.io&autoplay=false&muted=true" allowfullscreen></iframe>`;
+            twitchGrid.appendChild(card);
         });
+
+
+        // PRO STRATEGY LAB GLOBAL STATE
+        let stageLogicEnabled = false;
+
+        function toggleStage() {
+            stageLogicEnabled = !stageLogicEnabled;
+            const btn = document.getElementById('stage-toggle');
+            const inputs = document.getElementById('stage-inputs');
+            if(stageLogicEnabled) {
+                btn.innerText = "ON"; btn.className = "px-4 py-1.5 bg-yellow-600 text-[9px] font-black rounded uppercase border border-yellow-500 text-white transition-all";
+                inputs.classList.remove('hidden');
+            } else {
+                btn.innerText = "OFF"; btn.className = "px-4 py-1.5 bg-zinc-800 text-[9px] font-black rounded uppercase border border-zinc-700 text-zinc-400 hover:text-white transition-all";
+                inputs.classList.add('hidden');
+            }
+            updateLab();
+        }
+
+
+        // // STRATEGY LAB PRO START
+        /**
+         * DETERMINISTIC ENGINE CLASS
+         * Ensures all math is repeatable and mathematically accurate.
+         */
+        class IGRL_SimEngine {
+            static calculateFuelCoefficient(window) {
+                return 1.0 / Math.max(1, window);
+            }
+
+            static simulateStint(laps, fuelWindow, savePotential) {
+                const maxFuelLaps = fuelWindow + savePotential;
+                const stops = Math.max(0, Math.ceil(laps / maxFuelLaps) - 1);
+                return {
+                    stops: stops,
+                    maxWindow: maxFuelLaps
+                };
+            }
+        }
+
+        function updateLab() {
+            // 1. DATA ACQUISITION
+            const laps = parseInt(document.getElementById('sl-laps').value);
+            const fuel = parseInt(document.getElementById('sl-fuel').value);
+            const save = parseInt(document.getElementById('sl-save').value);
+            const wear = parseFloat(document.getElementById('sl-wear').value);
+            const s1Len = parseInt(document.getElementById('sl-s1').value);
+            const s2Len = parseInt(document.getElementById('sl-s2').value);
+
+            // 2. STAGE CALCULATIONS
+            const s1End = s1Len;
+            const s2End = s1Len + s2Len;
+            const s3Len = Math.max(0, laps - s2End);
+            const maxFuel = fuel + save;
+
+            // 3. UI LABEL REFRESH
+            document.getElementById('val-laps').innerText = `${laps} Laps`;
+            document.getElementById('val-fuel').innerText = `${fuel} Laps`;
+            document.getElementById('val-save').innerText = `+${save} Laps`;
+            document.getElementById('val-wear').innerText = `${wear.toFixed(1)}%`;
+            document.getElementById('val-s1').innerText = `${s1Len} Laps`;
+            document.getElementById('val-s2').innerText = `${s2Len} Laps`;
+            document.getElementById('s1-summary').innerText = s1End;
+            document.getElementById('s2-summary').innerText = s2End;
+
+            // 4. CORE ENGINE SIMULATION (Deterministic)
+            const pushData = IGRL_SimEngine.simulateStint(laps, fuel, 0);
+            const saveData = IGRL_SimEngine.simulateStint(laps, fuel, save);
+            
+            const pushStintAvg = stopsToAvg(laps, pushData.stops);
+            document.getElementById('push-stops').innerText = pushData.stops;
+            document.getElementById('push-stint').innerText = `${pushStintAvg.toFixed(1)} Laps`;
+
+            document.getElementById('save-stops').innerText = saveData.stops;
+            document.getElementById('save-stint').innerText = `${saveData.maxWindow} Laps`;
+
+            // 5. PRECISION TIRE WEAR
+            const stintWear = (pushStintAvg * wear).toFixed(2);
+            document.getElementById('eng-tire').innerText = `-${stintWear}%`;
+
+            // 6. ENGINEER DIRECTIVE LOGIC
+            const directive = document.getElementById('eng-directive');
+            const subtext = document.getElementById('eng-subtext');
+            const alertBg = document.getElementById('eng-bg-alert');
+            alertBg.style.opacity = "0";
+
+            if (stageLogicEnabled) {
+                const canReachS1 = maxFuel >= s1End;
+                const deltaS1 = s1End - fuel;
+                const flipPotential = (fuel >= (s1End - 4)) && (fuel < s1End);
+
+                if (!canReachS1) {
+                    directive.innerText = "S1 ALERT: FUEL DEFICIT";
+                    directive.className = "font-impact text-4xl italic text-red-500 alert-blink";
+                    subtext.innerText = `CRITICAL: Even with max saving (+${save} laps), you are ${s1End - maxFuel} laps short of the Stage 1 break. A split-stage strategy is required.`;
+                    alertBg.style.opacity = "1";
+                } 
+                else if (flipPotential) {
+                    directive.innerText = "STRATEGY: FLIP THE STAGE";
+                    directive.className = "font-impact text-4xl italic text-blue-500";
+                    subtext.innerText = `Deterministic check successful: You can pit 2-4 laps before S1 end. Sacrificing S1 points guarantees clean air and lead position for the S2 restart.`;
+                }
+                else if (deltaS1 > 0) {
+                    directive.innerText = "CAUTION: ECONOMY MODE";
+                    directive.className = "font-impact text-4xl italic text-yellow-500";
+                    subtext.innerText = `You require ${deltaS1.toFixed(1)} laps of fuel extension to clear Stage 1. Engage lift-and-coast maneuvers in turn entries.`;
+                }
+                else {
+                    directive.innerText = "STATUS: FULL ATTACK";
+                    directive.className = "font-impact text-4xl italic text-emerald-500";
+                    subtext.innerText = `Fuel load is mathematically sufficient for Stage 1. Focus on optimizing corner exit speed to preserve tire life (-${stintWear}%).`;
+                }
+            } else {
+                if (parseFloat(stintWear) > 80) {
+                    directive.innerText = "WARNING: TIRE FAILURE RISK";
+                    directive.className = "font-impact text-4xl italic text-red-500";
+                    subtext.innerText = "Tire wear reaches critical degradation levels before fuel exhaustion. Strategy must be dictated by rubber life.";
+                } else {
+                    directive.innerText = "DIRECTIVE: PUSH TO LIMIT";
+                    directive.className = "font-impact text-4xl italic text-white";
+                    subtext.innerText = "Open race configuration. Maximize throttle time. Current fuel window is the primary constraint.";
+                }
+            }
+
+            // 7. VISUALIZER RE-RENDER (High Precision Markers)
+            const timeline = document.getElementById('race-timeline');
+            timeline.innerHTML = '<div class="timeline-fill" style="width: 100%;"></div>';
+            
+            if (stageLogicEnabled) {
+                const s1Pct = (s1End / laps) * 100;
+                const s2Pct = (s2End / laps) * 100;
+                
+                timeline.innerHTML += `<div class="stage-zone-1" style="width: ${s1Pct}%; left: 0;"></div>`;
+                timeline.innerHTML += `<div class="stage-zone-2" style="width: ${(s2Len/laps)*100}%; left: ${s1Pct}%;"></div>`;
+                
+                if (s1Pct < 100) {
+                    timeline.innerHTML += `<div class="stage-marker" style="left: ${s1Pct}%;"></div><div class="stage-label" style="left: ${s1Pct}%;">S1 L${s1End}</div>`;
+                }
+                if (s2Pct < 100) {
+                    timeline.innerHTML += `<div class="stage-marker" style="left: ${s2Pct}%; background: #3b82f6;"></div><div class="stage-label" style="left: ${s2Pct}%; color: #3b82f6;">S2 L${s2End}</div>`;
+                }
+            }
+
+            const activeStint = saveData.stops < pushData.stops ? maxFuel : fuel;
+            const activeStops = saveData.stops < pushData.stops ? saveData.stops : pushData.stops;
+            
+            for (let i = 1; i <= activeStops; i++) {
+                const pitLap = Math.floor(activeStint * i);
+                const posPct = (pitLap / laps) * 100;
+                if (posPct < 98) {
+                    timeline.innerHTML += `
+                        <div class="pit-marker" style="left: ${posPct}%;"></div>
+                        <div class="pit-label" style="left: ${posPct}%;">PIT L${pitLap}</div>
+                    `;
+                }
+            }
+        }
+
+        // Helper: Precise Average Calculation
+        function stopsToAvg(totalLaps, stops) {
+            return totalLaps / (stops + 1);
+        }
+
+        updateLab();
+        // // STRATEGY LAB PRO END
+
     </script>
 </body>
 </html>
