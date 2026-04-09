@@ -62,6 +62,14 @@
     <main class="flex-1 overflow-y-auto">
         
         <div class="sticky top-0 z-40 glass border-b border-zinc-800 p-6 flex flex-wrap justify-end items-center gap-12 pr-12">
+            <div class="header-timer-box" style="border-left-color: #10b981;">
+                <div class="flex items-center gap-3">
+                    <span class="text-emerald-500 font-impact text-sm italic tracking-widest">CURRENT PLAYERS ONLINE</span>
+                    <span class="text-[9px] font-black text-zinc-500 uppercase tracking-tighter bg-zinc-900 px-2 py-0.5 rounded">STEAM LIVE</span>
+                </div>
+                <div id="steam-player-count" class="font-racing text-2xl text-white tracking-tighter mt-1">LOADING...</div>
+            </div>
+
             <div class="header-timer-box xfinity">
                 <div class="flex items-center gap-3">
                     <span class="text-blue-500 font-impact text-sm italic tracking-widest">NEXT XFINITY RACE</span>
@@ -345,7 +353,7 @@
 
  <section id="paint-schemes" class="py-16 px-10 max-w-7xl mx-auto border-t border-zinc-900">
             <h2 class="font-impact text-6xl italic text-white mb-2 text-center">PAINT <span class="text-blue-500">SCHEMES</span></h2>
-            <p class="text-zinc-500 text-xs font-black text-center uppercase tracking-[0.4em] mb-12">Official Design Guides by KickSaveDave</p>
+            <p class="text-zinc-500 text-xs font-black text-center uppercase tracking-[0.4em] mb-12">Official Design Guides by KickSave_Dave</p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="glass rounded-xl overflow-hidden border border-zinc-800 hover:border-blue-500 transition-colors">
@@ -487,6 +495,31 @@
             process(CUP_DATES, 'cup-timer', 'cup-track');
         }
         setInterval(updateCountdowns, 1000); updateCountdowns();
+
+        // STEAM LIVE PLAYER COUNT SCRIPT
+        async function fetchSteamPlayers() {
+            const appId = "3873970"; 
+            const steamUrl = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=${appId}`;
+            const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(steamUrl)}`;
+
+            try {
+                const response = await fetch(proxyUrl);
+                const data = await response.json();
+                const steamData = JSON.parse(data.contents);
+
+                if (steamData.response && typeof steamData.response.player_count !== 'undefined') {
+                    const count = steamData.response.player_count.toLocaleString();
+                    document.getElementById('steam-player-count').innerHTML = `${count} <span class="text-xs text-zinc-500 tracking-widest uppercase">Plyrs</span>`;
+                } else {
+                    document.getElementById('steam-player-count').innerText = "OFFLINE";
+                }
+            } catch (error) {
+                console.error("Steam API Error:", error);
+                document.getElementById('steam-player-count').innerText = "---";
+            }
+        }
+        fetchSteamPlayers();
+        setInterval(fetchSteamPlayers, 60000);
 
         const DATA_LINKS = {
             cup_standings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRaElymkI-WS9GjMW-A-F2rFB5yx6dnxBzn2wp7zhOC-sT8HE5bYJ-7p3wG6bgEXc3RAgPtbhA_7vr4/pubhtml?widget=true&headers=false",
