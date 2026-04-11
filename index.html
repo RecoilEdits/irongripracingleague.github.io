@@ -392,148 +392,207 @@
 </section>
 
 
-        <section id="strategy-lab" class="py-20 px-10 max-w-7xl mx-auto border-t border-zinc-900">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
-                <div>
-                    <h2 class="font-impact text-6xl italic text-white mb-2">STRATEGY <span class="text-emerald-500">LAB PRO</span></h2>
-                    <p class="text-zinc-500 text-[10px] font-black uppercase tracking-[0.4em] flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        NASCAR 25 Beta IGRL Stradegy Lab WIP
-                    </p>
-                </div>
+        <section id="strategy-lab" class="py-24 px-10 max-w-[1700px] mx-auto border-t border-zinc-900 text-zinc-300">
+    <div class="flex flex-col xl:flex-row justify-between items-start mb-16 gap-12">
+        <div class="relative">
+            <h2 class="font-impact text-8xl italic text-white tracking-tighter uppercase leading-none">Strategy <span class="text-emerald-500">Lab Pro</span></h2>
+            <div class="flex items-center gap-4 mt-4">
+                <span class="bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.3em]">Beta v2.0 PC Telemetry Engine</span>
+                <div class="h-px w-48 bg-gradient-to-r from-emerald-500/50 to-transparent"></div>
             </div>
+        </div>
 
-            <div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 w-full xl:w-auto">
+            <div class="glass p-5 rounded-2xl border border-zinc-800 bg-black/40 min-w-[160px]">
+                <p class="text-[9px] font-black text-zinc-500 uppercase mb-2 tracking-widest">Stage 3 Length</p>
+                <p id="ui-s3-length" class="font-racing text-3xl text-yellow-500">50</p>
+            </div>
+            <div class="glass p-5 rounded-2xl border border-zinc-800 bg-black/40 min-w-[160px]">
+                <p class="text-[9px] font-black text-zinc-500 uppercase mb-2 tracking-widest">Tire Falloff / Lap</p>
+                <p id="ui-falloff-rate" class="font-racing text-3xl text-purple-400">0.00s</p>
+            </div>
+            <div class="glass p-5 rounded-2xl border border-zinc-800 bg-black/40 min-w-[160px]">
+                <p class="text-[9px] font-black text-zinc-500 uppercase mb-2 tracking-widest">Fuel Per Stint</p>
+                <p id="ui-stint-fuel" class="font-racing text-3xl text-blue-400">35</p>
+            </div>
+            <div class="glass p-5 rounded-2xl border border-zinc-800 bg-black/40 min-w-[160px]">
+                <p class="text-[9px] font-black text-zinc-500 uppercase mb-2 tracking-widest">Undercut Window</p>
+                <p id="ui-undercut-window" class="font-racing text-3xl text-emerald-500">L0</p>
+            </div>
+            <div class="glass p-5 rounded-2xl border border-zinc-800 bg-black/40 min-w-[160px]">
+                <p class="text-[9px] font-black text-zinc-500 uppercase mb-2 tracking-widest">Proj. Race Time</p>
+                <p id="ui-race-time" class="font-racing text-3xl text-zinc-400">00:00:00</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 xl:grid-cols-12 gap-12">
+        <div class="xl:col-span-4 space-y-8">
+            <div class="glass p-8 rounded-[2.5rem] border border-zinc-800 bg-gradient-to-b from-zinc-900/40 to-black/60 space-y-8 shadow-2xl">
                 
-                <div class="xl:col-span-4 glass p-8 rounded-2xl border border-zinc-800 space-y-8">
-                    <h3 class="font-impact text-2xl italic text-emerald-500 border-b border-zinc-800 pb-2">SIMULATION PARAMS</h3>
-                    
-                    <div class="space-y-2">
-                        <div class="flex justify-between">
-                            <label class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Total Race Distance</label>
-                            <span id="val-laps" class="text-white font-racing text-sm">100 Laps</span>
-                        </div>
-                        <input type="range" id="sl-laps" min="10" max="300" value="100" oninput="updateLab()">
+                <div class="flex items-center gap-3 border-b border-zinc-800 pb-6">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500 flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.4)]">
+                        <i class="fas fa-sliders-h text-black"></i>
                     </div>
+                    <h3 class="font-impact text-2xl italic text-white uppercase tracking-tight">Race Configuration</h3>
+                </div>
 
-                    <div class="pt-4 border-t border-zinc-800/50 space-y-4">
-                        <div class="flex justify-between items-center">
-                            <label class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Stage Logic</label>
-                            <button id="stage-toggle" onclick="toggleStage()" class="px-4 py-1.5 bg-zinc-800 text-[9px] font-black rounded uppercase border border-zinc-700 text-zinc-400 hover:text-white transition-all">OFF</button>
-                        </div>
-                        
-                        <div id="stage-inputs" class="hidden space-y-6 bg-black/30 p-4 rounded-xl border border-zinc-800/50">
-                            <div class="space-y-2">
-                                <div class="flex justify-between">
-                                    <label class="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Stage 1 Length</label>
-                                    <span id="val-s1" class="text-yellow-500 font-racing text-xs">25 Laps</span>
-                                </div>
-                                <input type="range" id="sl-s1" min="5" max="100" value="25" oninput="updateLab()">
-                            </div>
-                            <div class="space-y-2">
-                                <div class="flex justify-between">
-                                    <label class="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Stage 2 Length</label>
-                                    <span id="val-s2" class="text-yellow-500 font-racing text-xs">25 Laps</span>
-                                </div>
-                                <input type="range" id="sl-s2" min="5" max="100" value="25" oninput="updateLab()">
-                            </div>
-                            <div class="p-3 bg-zinc-900/50 rounded border border-zinc-800">
-                                <p class="text-[8px] text-zinc-500 uppercase font-black tracking-widest">Break Lap Summary</p>
-                                <div class="flex justify-between mt-2 font-racing text-[10px]">
-                                    <span class="text-yellow-600">S1 End: Lap <span id="s1-summary">25</span></span>
-                                    <span class="text-blue-500">S2 End: Lap <span id="s2-summary">50</span></span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="group">
+                        <label class="text-[10px] font-black text-zinc-500 uppercase block mb-2">Total Laps</label>
+                        <input type="number" id="sl-laps" value="100" class="w-full bg-black border border-zinc-800 rounded-xl p-4 text-white font-racing outline-none" oninput="runNeuroSim()">
                     </div>
-
-                    <div class="space-y-2 border-t border-zinc-800 pt-6">
-                        <div class="flex justify-between">
-                            <label class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Fuel Window (Pushing)</label>
-                            <span id="val-fuel" class="text-white font-racing text-sm">35 Laps</span>
-                        </div>
-                        <input type="range" id="sl-fuel" min="10" max="100" value="35" oninput="updateLab()">
-                    </div>
-
-                    <div class="space-y-2">
-                        <div class="flex justify-between">
-                            <label class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Fuel Save Potential</label>
-                            <span id="val-save" class="text-emerald-400 font-racing text-sm">+3 Laps</span>
-                        </div>
-                        <input type="range" id="sl-save" min="0" max="15" value="3" oninput="updateLab()">
-                    </div>
-
-                    <div class="space-y-2">
-                        <div class="flex justify-between">
-                            <label class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Tire Wear / Lap</label>
-                            <span id="val-wear" class="text-purple-400 font-racing text-sm">0.8%</span>
-                        </div>
-                        <input type="range" id="sl-wear" min="0.1" max="2.0" step="0.1" value="0.8" oninput="updateLab()">
+                    <div class="group">
+                        <label class="text-[10px] font-black text-zinc-500 uppercase block mb-2">Track Type</label>
+                        <select id="sl-track" class="w-full bg-black border border-zinc-800 rounded-xl p-4 text-white font-racing outline-none" onchange="runNeuroSim()">
+                            <option value="intermediate">Intermediate</option>
+                            <option value="short">Short Track</option>
+                            <option value="superspeedway">Superspeedway</option>
+                            <option value="road">Road Course</option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="xl:col-span-8 space-y-8">
-                    
-                    <div class="glass p-10 rounded-2xl border border-zinc-800 flex flex-col md:flex-row items-center gap-10 overflow-hidden relative">
-                        <div id="eng-bg-alert" class="absolute inset-0 opacity-0 transition-opacity duration-300 bg-red-600/10 pointer-events-none"></div>
-                        <div class="w-40 h-40 rounded-full border-8 border-zinc-900 flex items-center justify-center relative shadow-2xl z-10">
-                             <div class="absolute inset-0 rounded-full border-t-8 border-emerald-500 animate-spin-slow"></div>
-                             <div class="text-center">
-                                <span id="eng-tire" class="font-racing text-4xl text-white">--</span>
-                                <p class="text-[8px] font-black text-zinc-500 uppercase tracking-tighter">Estimated Wear/Stint</p>
-                             </div>
+                <div class="grid grid-cols-2 gap-6 pt-4">
+                    <div class="group">
+                        <label class="text-[10px] font-black text-zinc-500 uppercase block mb-2">Avg Lap Time (s)</label>
+                        <input type="number" id="sl-laptime" value="30.5" step="0.1" class="w-full bg-black border border-zinc-800 rounded-xl p-4 text-white font-racing outline-none" oninput="runNeuroSim()">
+                    </div>
+                    <div class="group">
+                        <label class="text-[10px] font-black text-zinc-500 uppercase block mb-2">Fuel Range (Laps)</label>
+                        <input type="number" id="sl-fuel" value="35" class="w-full bg-black border border-zinc-800 rounded-xl p-4 text-white font-racing outline-none" oninput="runNeuroSim()">
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-6 border-t border-zinc-800">
+                    <h4 class="text-[10px] font-black text-yellow-500 uppercase tracking-widest">Stage Boundaries</h4>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center"><label class="text-[10px] font-black text-zinc-400 uppercase">S1 Length</label><span id="v-s1" class="text-white font-racing text-xs">25</span></div>
+                            <input type="range" id="sl-s1" min="1" max="100" value="25" class="w-full accent-yellow-500" oninput="runNeuroSim()">
                         </div>
-                        <div class="flex-1 text-center md:text-left z-10">
-                            <p class="text-[10px] font-black text-zinc-500 uppercase tracking-[0.4em] mb-2">Race Engineer Strategy Advice</p>
-                            <h2 id="eng-directive" class="font-impact text-4xl italic text-white leading-tight">INITIALIZING TELEMETRY...</h2>
-                            <p id="eng-subtext" class="text-zinc-400 text-[11px] mt-4 font-bold uppercase tracking-widest max-w-md mx-auto md:mx-0">Calculating most efficient fuel load for current stage configuration.</p>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center"><label class="text-[10px] font-black text-zinc-400 uppercase">S2 Length</label><span id="v-s2" class="text-white font-racing text-xs">25</span></div>
+                            <input type="range" id="sl-s2" min="1" max="100" value="25" class="w-full accent-yellow-500" oninput="runNeuroSim()">
                         </div>
                     </div>
+                    <p class="text-[9px] text-zinc-600 font-bold uppercase italic">Stage 3 is dynamically calculated: <span id="v-s3-text" class="text-white font-black">50 Laps</span></p>
+                </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="glass p-6 rounded-2xl border border-zinc-800 border-t-4 border-t-zinc-600">
-                            <h3 class="font-impact text-2xl italic text-white flex justify-between">PUSH STRAT <i class="fas fa-fire text-red-500 text-lg"></i></h3>
-                            <div class="mt-4 grid grid-cols-2 gap-4">
-                                <div class="bg-black/40 p-3 rounded">
-                                    <p class="text-[9px] text-zinc-500 font-black uppercase">Pit Stops</p>
-                                    <p id="push-stops" class="font-racing text-2xl text-white">--</p>
-                                </div>
-                                <div class="bg-black/40 p-3 rounded">
-                                    <p class="text-[9px] text-zinc-500 font-black uppercase">Avg Stint</p>
-                                    <p id="push-stint" class="font-racing text-xl text-white">-- Laps</p>
-                                </div>
-                            </div>
+                <div class="space-y-6 pt-6 border-t border-zinc-800">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <label class="text-[10px] font-black text-blue-400 uppercase tracking-widest">Per-Stint Fuel Save</label>
+                            <span id="v-save" class="text-white font-racing bg-blue-500/20 px-3 py-1 rounded text-sm">+0 Laps</span>
                         </div>
+                        <input type="range" id="sl-save" min="0" max="10" step="1" value="0" class="w-full accent-blue-500" oninput="runNeuroSim()">
+                        <p class="text-[9px] text-zinc-600 font-black uppercase italic leading-tight">Increases single-run range. Calculates lap time penalty.</p>
+                    </div>
+                </div>
 
-                        <div class="glass p-6 rounded-2xl border border-zinc-800 border-t-4 border-t-emerald-500">
-                            <h3 class="font-impact text-2xl italic text-white flex justify-between">FUEL MASTER <i class="fas fa-leaf text-emerald-500 text-lg"></i></h3>
-                            <div class="mt-4 grid grid-cols-2 gap-4">
-                                <div class="bg-black/40 p-3 rounded border border-emerald-900/30">
-                                    <p class="text-[9px] text-zinc-500 font-black uppercase">Pit Stops</p>
-                                    <p id="save-stops" class="font-racing text-2xl text-emerald-500">--</p>
-                                </div>
-                                <div class="bg-black/40 p-3 rounded border border-emerald-900/30">
-                                    <p class="text-[9px] text-zinc-500 font-black uppercase">Max Stint</p>
-                                    <p id="save-stint" class="font-racing text-xl text-emerald-400">-- Laps</p>
-                                </div>
-                            </div>
+                <div class="space-y-3 pt-6 border-t border-zinc-800">
+                    <label class="text-[10px] font-black text-red-500 uppercase flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> Unplanned Recovery Pit (Lap)
+                    </label>
+                    <input type="number" id="sl-manual" placeholder="e.g., 42" class="w-full bg-black border border-zinc-800 rounded-xl p-4 text-red-500 font-racing tracking-widest focus:border-red-500 outline-none transition-all" oninput="runNeuroSim()">
+                    <p class="text-[9px] text-zinc-600 font-black uppercase italic leading-tight">Forces a recalculation of strategy from this exact lap.</p>
+                </div>
+
+                <div class="pt-6 border-t border-zinc-800 space-y-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-[9px] font-black text-zinc-600 uppercase italic">Pit Stall + Road (s)</label>
+                            <input type="number" id="sl-delta" value="45.0" step="0.1" class="w-full bg-black border border-zinc-800 rounded-lg p-3 text-white font-racing" oninput="runNeuroSim()">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[9px] font-black text-zinc-600 uppercase italic">Out-Lap Penalty (s)</label>
+                            <input type="number" id="sl-outlap" value="2.5" step="0.1" class="w-full bg-black border border-zinc-800 rounded-lg p-3 text-white font-racing" oninput="runNeuroSim()">
                         </div>
                     </div>
-
-                    <div class="glass p-8 rounded-2xl border border-zinc-800">
-                        <div class="flex justify-between items-center mb-10">
-                            <span class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">RACE TIMELINE (STRATEGY VISUALIZER)</span>
-                            <div class="flex gap-4">
-                                <span class="text-[9px] font-black text-red-500 uppercase flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> PIT WINDOW</span>
-                                <span class="text-[9px] font-black text-yellow-500 uppercase flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> STAGE END</span>
-                            </div>
-                        </div>
-                        <div class="timeline-container mb-6" id="race-timeline"></div>
-                    </div>
-
                 </div>
             </div>
-        </section>
+        </div>
+
+        <div class="xl:col-span-8 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-[2rem] border border-zinc-800 border-l-8 border-l-red-500 bg-red-500/[0.02] group hover:bg-red-500/[0.05] transition-all">
+                    <p class="text-[11px] font-black text-red-500 uppercase tracking-widest mb-2">Aggressive Undercut</p>
+                    <h3 id="st-agg" class="font-racing text-3xl text-white mb-2">Laps --</h3>
+                    <p class="text-[9px] text-zinc-500 font-bold uppercase italic">Prioritizes track position</p>
+                </div>
+                <div class="glass p-8 rounded-[2rem] border border-emerald-500 border-t-8 bg-emerald-500/[0.02] shadow-[0_20px_60px_rgba(16,185,129,0.1)] group">
+                    <p class="text-[11px] font-black text-emerald-500 uppercase tracking-widest mb-2">Telemetry Optimal</p>
+                    <h3 id="st-opt" class="font-racing text-4xl text-white mb-2">Laps --</h3>
+                    <p class="text-[9px] text-zinc-500 font-bold uppercase italic">Mathematically fastest path</p>
+                </div>
+                <div class="glass p-8 rounded-[2rem] border border-zinc-800 border-l-8 border-l-blue-500 bg-blue-500/[0.02] group hover:bg-blue-500/[0.05] transition-all">
+                    <p class="text-[11px] font-black text-blue-500 uppercase tracking-widest mb-2">Fuel Overcut</p>
+                    <h3 id="st-con" class="font-racing text-3xl text-white mb-2">Laps --</h3>
+                    <p class="text-[9px] text-zinc-500 font-bold uppercase italic">Stretches stint limits</p>
+                </div>
+            </div>
+
+            <div class="glass p-12 rounded-[3.5rem] border border-zinc-800 relative overflow-hidden bg-black/40">
+                <div class="flex justify-between items-center mb-16">
+                    <div>
+                        <h4 class="text-2xl font-impact italic text-white uppercase tracking-tight">Race Flow Projection</h4>
+                        <p class="text-[10px] text-zinc-600 font-black uppercase tracking-[0.4em] mt-1">Telemetry Engine v10.0</p>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-yellow-500"></div><span class="text-[10px] font-black text-zinc-500 uppercase">Stage</span></div>
+                        <div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-red-500"></div><span class="text-[10px] font-black text-zinc-500 uppercase">Recovery</span></div>
+                        <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_15px_#10b981]"></div><span class="text-[10px] font-black text-zinc-500 uppercase">Pit</span></div>
+                    </div>
+                </div>
+
+                <div class="relative h-32 bg-zinc-900/30 rounded-[2rem] border border-zinc-800/50 flex items-center px-6">
+                    <div id="timeline-ruler" class="absolute inset-x-8 top-1/2 -translate-y-1/2 flex justify-between opacity-5"></div>
+                    <div id="timeline-render" class="relative w-full h-full"></div>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 mt-16 pt-12 border-t border-zinc-800/50">
+                    <div class="space-y-2">
+                        <p class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">End of Stint Tire Wear</p>
+                        <p id="an-wear" class="font-racing text-3xl text-purple-400">0%</p>
+                        <div class="h-1 w-full bg-zinc-800 rounded-full overflow-hidden"><div id="bar-wear" class="h-full bg-purple-500 transition-all duration-1000" style="width:0%"></div></div>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Stint Extension Target</p>
+                        <p id="an-fuel-save" class="font-racing text-3xl text-blue-400">0 Laps</p>
+                        <div class="h-1 w-full bg-zinc-800 rounded-full overflow-hidden"><div id="bar-fuel" class="h-full bg-blue-500 transition-all duration-1000" style="width:0%"></div></div>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Total Pits (Optimal)</p>
+                        <p id="an-stints" class="font-racing text-3xl text-white">--</p>
+                        <p class="text-[8px] text-zinc-600 font-bold uppercase">Based on stages/fuel</p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Late Race Risk</p>
+                        <p id="an-risk" class="font-racing text-3xl text-white">---</p>
+                        <p class="text-[8px] text-zinc-600 font-bold uppercase">Final 10 Lap Assessment</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="directive-box" class="glass p-10 rounded-[3rem] border border-zinc-800 flex flex-col md:flex-row gap-10 items-center bg-gradient-to-r from-emerald-500/[0.07] to-transparent transition-all duration-700">
+                <div class="relative">
+                    <div class="w-24 h-24 rounded-full border-4 border-emerald-500/20 flex items-center justify-center">
+                        <i class="fas fa-satellite-dish text-4xl text-emerald-500 animate-pulse"></i>
+                    </div>
+                    <div class="absolute -top-2 -right-2 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center border-4 border-black">
+                        <div class="w-2 h-2 bg-black rounded-full animate-ping"></div>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <span class="bg-emerald-500 text-black px-4 py-1 rounded text-[10px] font-black uppercase mb-3 inline-block">Telemetry Directive</span>
+                    <h5 id="ai-heading" class="text-4xl font-impact italic text-white uppercase tracking-tight leading-none mb-3">Syncing Race Logic...</h5>
+                    <p id="ai-subtext" class="text-zinc-500 text-sm font-bold uppercase tracking-widest leading-relaxed max-w-3xl">Calculating optimal pit cycle based on track type, lap times, and wear profiles.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
  <section id="paint-schemes" class="py-16 px-10 max-w-7xl mx-auto border-t border-zinc-900">
             <h2 class="font-impact text-6xl italic text-white mb-2 text-center">PAINT <span class="text-blue-500">SCHEMES</span></h2>
@@ -751,152 +810,207 @@
         }
 
 
-        // // STRATEGY LAB PRO START
-        /**
-         * DETERMINISTIC ENGINE CLASS
-         * Ensures all math is repeatable and mathematically accurate.
-         */
-        class IGRL_SimEngine {
-            static calculateFuelCoefficient(window) {
-                return 1.0 / Math.max(1, window);
-            }
+// STRATEGY LAB PRO START
+function runNeuroSim() {
+    // 1. INPUT DATA STREAM
+    const laps = parseInt(document.getElementById('sl-laps').value) || 100;
+    const trackType = document.getElementById('sl-track').value;
+    const baseLapTime = parseFloat(document.getElementById('sl-laptime').value) || 30.0;
+    const baseFuel = parseInt(document.getElementById('sl-fuel').value) || 35;
+    const saveLaps = parseInt(document.getElementById('sl-save').value) || 0;
+    
+    let s1Len = parseInt(document.getElementById('sl-s1').value) || 25;
+    let s2Len = parseInt(document.getElementById('sl-s2').value) || 25;
+    const pitDelta = parseFloat(document.getElementById('sl-delta').value) || 45.0;
+    const outLapPenalty = parseFloat(document.getElementById('sl-outlap').value) || 2.5;
+    const manualPitText = document.getElementById('sl-manual').value;
 
-            static simulateStint(laps, fuelWindow, savePotential) {
-                const maxFuelLaps = fuelWindow + savePotential;
-                const stops = Math.max(0, Math.ceil(laps / maxFuelLaps) - 1);
-                return {
-                    stops: stops,
-                    maxWindow: maxFuelLaps
-                };
-            }
+    // 2. STAGE 3 CALCULATION & UI BOUNDARY CHECKS
+    if (s1Len + s2Len >= laps) {
+        s2Len = Math.max(1, laps - s1Len - 1);
+        document.getElementById('sl-s2').value = s2Len;
+    }
+    const s3Len = laps - s1Len - s2Len;
+    document.getElementById('v-s1').innerText = s1Len;
+    document.getElementById('v-s2').innerText = s2Len;
+    document.getElementById('ui-s3-length').innerText = s3Len;
+    document.getElementById('v-s3-text').innerText = s3Len + " Laps";
+    document.getElementById('sl-s1').max = laps - 2;
+    document.getElementById('sl-s2').max = laps - s1Len - 1;
+
+    // 3. TRACK TYPE PROFILES (NASCAR 25 PHYSICS LOGIC)
+    const trackData = {
+        superspeedway: { wearPct: 0.15, timeLossPerLap: 0.005, fuelMod: 1.05 },
+        intermediate:  { wearPct: 1.20, timeLossPerLap: 0.080, fuelMod: 1.00 },
+        short:         { wearPct: 1.80, timeLossPerLap: 0.120, fuelMod: 0.95 },
+        road:          { wearPct: 2.20, timeLossPerLap: 0.180, fuelMod: 1.10 }
+    };
+    
+    const tProfile = trackData[trackType];
+    const wearRate = tProfile.wearPct;
+    const falloffRate = tProfile.timeLossPerLap;
+    
+    // Per Stint Variables
+    const effectiveFuel = baseFuel + saveLaps;
+    const fuelSavePenaltySec = saveLaps * 0.2; // Pace loss for saving fuel
+
+    // Update Telemetry UI
+    document.getElementById('ui-falloff-rate').innerText = falloffRate.toFixed(3) + 's';
+    document.getElementById('ui-stint-fuel').innerText = effectiveFuel;
+    document.getElementById('v-save').innerText = `+${saveLaps} Laps`;
+
+    // 4. MANUAL RECOVERY LOGIC
+    let recoveryLap = parseInt(manualPitText);
+    let events = [s1Len, s1Len + s2Len];
+    if (!isNaN(recoveryLap) && recoveryLap > 0 && recoveryLap < laps) {
+        events.push(recoveryLap);
+    }
+    events = [...new Set(events)].sort((a,b) => a - b);
+
+    // 5. PIT OPTIMIZATION & TELEMETRY ENGINE
+    const totalPitLoss = pitDelta + outLapPenalty;
+    let optimalWindowLap = 0;
+    let timeLostOnTires = 0;
+
+    // Find crossover lap (where time lost on old tires > time to pit)
+    for (let i = 1; i <= effectiveFuel; i++) {
+        timeLostOnTires += falloffRate * Math.pow(i, 1.1); 
+        if (timeLostOnTires >= totalPitLoss && optimalWindowLap === 0) {
+            optimalWindowLap = i;
         }
+    }
+    if (optimalWindowLap === 0) optimalWindowLap = effectiveFuel;
+    
+    document.getElementById('ui-undercut-window').innerText = `L${optimalWindowLap}`;
 
-        function updateLab() {
-            // 1. DATA ACQUISITION
-            const laps = parseInt(document.getElementById('sl-laps').value);
-            const fuel = parseInt(document.getElementById('sl-fuel').value);
-            const save = parseInt(document.getElementById('sl-save').value);
-            const wear = parseFloat(document.getElementById('sl-wear').value);
-            const s1Len = parseInt(document.getElementById('sl-s1').value);
-            const s2Len = parseInt(document.getElementById('sl-s2').value);
+    // Path Generation Function (Respects Stages and Final 10 Laps)
+    const generateStrategy = (targetStint) => {
+        let stops = [];
+        let cursor = isNaN(recoveryLap) || recoveryLap <= 0 ? 0 : recoveryLap;
 
-            // 2. STAGE CALCULATIONS
-            const s1End = s1Len;
-            const s2End = s1Len + s2Len;
-            const s3Len = Math.max(0, laps - s2End);
-            const maxFuel = fuel + save;
+        while (cursor < laps) {
+            let nextStop = cursor + targetStint;
+            let snapped = false;
 
-            // 3. UI LABEL REFRESH
-            document.getElementById('val-laps').innerText = `${laps} Laps`;
-            document.getElementById('val-fuel').innerText = `${fuel} Laps`;
-            document.getElementById('val-save').innerText = `+${save} Laps`;
-            document.getElementById('val-wear').innerText = `${wear.toFixed(1)}%`;
-            document.getElementById('val-s1').innerText = `${s1Len} Laps`;
-            document.getElementById('val-s2').innerText = `${s2Len} Laps`;
-            document.getElementById('s1-summary').innerText = s1End;
-            document.getElementById('s2-summary').innerText = s2End;
-
-            // 4. CORE ENGINE SIMULATION (Deterministic)
-            const pushData = IGRL_SimEngine.simulateStint(laps, fuel, 0);
-            const saveData = IGRL_SimEngine.simulateStint(laps, fuel, save);
-            
-            const pushStintAvg = stopsToAvg(laps, pushData.stops);
-            document.getElementById('push-stops').innerText = pushData.stops;
-            document.getElementById('push-stint').innerText = `${pushStintAvg.toFixed(1)} Laps`;
-
-            document.getElementById('save-stops').innerText = saveData.stops;
-            document.getElementById('save-stint').innerText = `${saveData.maxWindow} Laps`;
-
-            // 5. PRECISION TIRE WEAR
-            const stintWear = (pushStintAvg * wear).toFixed(2);
-            document.getElementById('eng-tire').innerText = `-${stintWear}%`;
-
-            // 6. ENGINEER DIRECTIVE LOGIC
-            const directive = document.getElementById('eng-directive');
-            const subtext = document.getElementById('eng-subtext');
-            const alertBg = document.getElementById('eng-bg-alert');
-            alertBg.style.opacity = "0";
-
-            if (stageLogicEnabled) {
-                const canReachS1 = maxFuel >= s1End;
-                const deltaS1 = s1End - fuel;
-                const flipPotential = (fuel >= (s1End - 4)) && (fuel < s1End);
-
-                if (!canReachS1) {
-                    directive.innerText = "S1 ALERT: FUEL DEFICIT";
-                    directive.className = "font-impact text-4xl italic text-red-500 alert-blink";
-                    subtext.innerText = `CRITICAL: Even with max saving (+${save} laps), you are ${s1End - maxFuel} laps short of the Stage 1 break. A split-stage strategy is required.`;
-                    alertBg.style.opacity = "1";
-                } 
-                else if (flipPotential) {
-                    directive.innerText = "STRATEGY: FLIP THE STAGE";
-                    directive.className = "font-impact text-4xl italic text-blue-500";
-                    subtext.innerText = `Deterministic check successful: You can pit 2-4 laps before S1 end. Sacrificing S1 points guarantees clean air and lead position for the S2 restart.`;
-                }
-                else if (deltaS1 > 0) {
-                    directive.innerText = "CAUTION: ECONOMY MODE";
-                    directive.className = "font-impact text-4xl italic text-yellow-500";
-                    subtext.innerText = `You require ${deltaS1.toFixed(1)} laps of fuel extension to clear Stage 1. Engage lift-and-coast maneuvers in turn entries.`;
-                }
-                else {
-                    directive.innerText = "STATUS: FULL ATTACK";
-                    directive.className = "font-impact text-4xl italic text-emerald-500";
-                    subtext.innerText = `Fuel load is mathematically sufficient for Stage 1. Focus on optimizing corner exit speed to preserve tire life (-${stintWear}%).`;
-                }
-            } else {
-                if (parseFloat(stintWear) > 80) {
-                    directive.innerText = "WARNING: TIRE FAILURE RISK";
-                    directive.className = "font-impact text-4xl italic text-red-500";
-                    subtext.innerText = "Tire wear reaches critical degradation levels before fuel exhaustion. Strategy must be dictated by rubber life.";
-                } else {
-                    directive.innerText = "DIRECTIVE: PUSH TO LIMIT";
-                    directive.className = "font-impact text-4xl italic text-white";
-                    subtext.innerText = "Open race configuration. Maximize throttle time. Current fuel window is the primary constraint.";
+            // Snap to stage breaks if within fuel reach
+            for (let e of [s1Len, s1Len + s2Len]) {
+                if (e > cursor && e <= nextStop + 5 && (e - cursor <= effectiveFuel)) {
+                    nextStop = e;
+                    snapped = true;
+                    break;
                 }
             }
 
-            // 7. VISUALIZER RE-RENDER (High Precision Markers)
-            const timeline = document.getElementById('race-timeline');
-            timeline.innerHTML = '<div class="timeline-fill" style="width: 100%;"></div>';
+            // Late Race Logic: Avoid pitting in last 10 laps if fuel allows finishing
+            if (!snapped && laps - cursor <= effectiveFuel && laps - cursor < 10) {
+                break; // We can make it to the end without pitting
+            }
+
+            if (nextStop >= laps) break;
             
-            if (stageLogicEnabled) {
-                const s1Pct = (s1End / laps) * 100;
-                const s2Pct = (s2End / laps) * 100;
-                
-                timeline.innerHTML += `<div class="stage-zone-1" style="width: ${s1Pct}%; left: 0;"></div>`;
-                timeline.innerHTML += `<div class="stage-zone-2" style="width: ${(s2Len/laps)*100}%; left: ${s1Pct}%;"></div>`;
-                
-                if (s1Pct < 100) {
-                    timeline.innerHTML += `<div class="stage-marker" style="left: ${s1Pct}%;"></div><div class="stage-label" style="left: ${s1Pct}%;">S1 L${s1End}</div>`;
-                }
-                if (s2Pct < 100) {
-                    timeline.innerHTML += `<div class="stage-marker" style="left: ${s2Pct}%; background: #3b82f6;"></div><div class="stage-label" style="left: ${s2Pct}%; color: #3b82f6;">S2 L${s2End}</div>`;
+            // If the next stop lands inside the final 10 laps, pull it back to lap (Laps - 11)
+            if (nextStop > laps - 10 && laps - cursor > effectiveFuel) {
+                if ((laps - 11) - cursor <= effectiveFuel) {
+                     nextStop = laps - 11;
                 }
             }
 
-            const activeStint = saveData.stops < pushData.stops ? maxFuel : fuel;
-            const activeStops = saveData.stops < pushData.stops ? saveData.stops : pushData.stops;
-            
-            for (let i = 1; i <= activeStops; i++) {
-                const pitLap = Math.floor(activeStint * i);
-                const posPct = (pitLap / laps) * 100;
-                if (posPct < 98) {
-                    timeline.innerHTML += `
-                        <div class="pit-marker" style="left: ${posPct}%;"></div>
-                        <div class="pit-label" style="left: ${posPct}%;">PIT L${pitLap}</div>
-                    `;
-                }
-            }
+            stops.push(Math.floor(nextStop));
+            cursor = nextStop;
         }
+        return stops;
+    };
 
-        // Helper: Precise Average Calculation
-        function stopsToAvg(totalLaps, stops) {
-            return totalLaps / (stops + 1);
-        }
+    // Build Strategy Trees
+    const optBranch = generateStrategy(Math.min(optimalWindowLap, effectiveFuel));
+    const aggBranch = generateStrategy(Math.floor(optimalWindowLap * 0.85)); // Push for undercut
+    const conBranch = generateStrategy(effectiveFuel); // Maximize stint distance
 
-        updateLab();
-        // // STRATEGY LAB PRO END
+    document.getElementById('st-opt').innerText = optBranch.length ? 'L' + optBranch.join(', ') : 'NO STOPS';
+    document.getElementById('st-agg').innerText = aggBranch.length ? 'L' + aggBranch.join(', ') : 'NO STOPS';
+    document.getElementById('st-con').innerText = conBranch.length ? 'L' + conBranch.join(', ') : 'NO STOPS';
 
-    </script>
+    // 6. ANALYTICS & RACE PROJECTION
+    const projectedStintLaps = Math.min(optimalWindowLap, effectiveFuel);
+    const endStintWear = projectedStintLaps * wearRate;
+    
+    // Estimate total race time
+    let totalRaceTimeSec = (laps * baseLapTime) + (optBranch.length * totalPitLoss) + (laps * fuelSavePenaltySec);
+    let hrs = Math.floor(totalRaceTimeSec / 3600);
+    let mins = Math.floor((totalRaceTimeSec % 3600) / 60);
+    let secs = Math.floor(totalRaceTimeSec % 60);
+    document.getElementById('ui-race-time').innerText = `${hrs}h ${mins}m ${secs}s`;
+
+    document.getElementById('an-wear').innerText = Math.min(100, endStintWear.toFixed(1)) + '%';
+    document.getElementById('bar-wear').style.width = Math.min(100, endStintWear) + '%';
+    
+    const savePct = (saveLaps / baseFuel) * 100;
+    document.getElementById('an-fuel-save').innerText = saveLaps + ' Laps';
+    document.getElementById('bar-fuel').style.width = Math.min(100, savePct * 5) + '%';
+    document.getElementById('an-stints').innerText = optBranch.length;
+    
+    // Risk Assessment
+    const lastStintLaps = laps - (optBranch.length > 0 ? optBranch[optBranch.length - 1] : 0);
+    document.getElementById('an-risk').innerText = (lastStintLaps > effectiveFuel * 0.9) ? "HIGH" : "LOW";
+    document.getElementById('an-risk').className = `font-racing text-3xl ${(lastStintLaps > effectiveFuel * 0.9) ? "text-red-500" : "text-emerald-500"}`;
+
+    // 7. MASTER TIMELINE RENDERING
+    const timeline = document.getElementById('timeline-render');
+    timeline.innerHTML = '';
+
+    // Render Stages & Recoveries
+    events.forEach(e => {
+        const pct = (e / laps) * 100;
+        const isStage = (e === s1Len || e === s1Len + s2Len);
+        timeline.innerHTML += `
+            <div class="absolute h-full w-[2px] ${isStage ? 'bg-yellow-500 shadow-[0_0_15px_#eab308]' : 'bg-red-500 shadow-[0_0_15px_#ef4444]'} z-10" style="left: ${pct}%"></div>
+            <div class="absolute -top-10 text-[9px] font-black ${isStage ? 'text-yellow-500' : 'text-red-500'} uppercase tracking-tighter" style="left: ${pct}%; transform: translateX(-50%)">L${e}</div>
+        `;
+    });
+
+    // Render Optimal Pits
+    optBranch.forEach(p => {
+        const pct = (p / laps) * 100;
+        timeline.innerHTML += `
+            <div class="absolute h-14 w-14 bg-emerald-500/20 border-2 border-emerald-500 rounded-full flex items-center justify-center z-20 shadow-[0_0_30px_rgba(16,185,129,0.3)] backdrop-blur-md" style="left: ${pct}%; top: 50%; transform: translate(-50%, -50%)">
+                <span class="text-[10px] font-black text-white">PIT</span>
+            </div>
+        `;
+    });
+
+    // 8. CHIEF STRATEGIST AI LOGIC
+    const head = document.getElementById('ai-heading');
+    const sub = document.getElementById('ai-subtext');
+    const box = document.getElementById('directive-box');
+
+    if (!isNaN(recoveryLap) && recoveryLap > 0) {
+        head.innerText = "RECOVERY PROTOCOL ACTIVE";
+        sub.innerText = `Strategy recalculating from manual pit at Lap ${recoveryLap}. Fuel and tires reset. Stage constraints applied where applicable.`;
+        box.style.borderColor = "#ef444455";
+    } else if (lastStintLaps > effectiveFuel) {
+        head.innerText = "CRITICAL: LATE RACE FUEL DEFICIT";
+        sub.innerText = `You are projected to run out of fuel in the final 10 laps. Increase fuel save or adjust strategy to force a pit stop earlier in Stage 3.`;
+        box.style.borderColor = "#ef444455";
+    } else if (saveLaps > 3 && trackType !== "superspeedway") {
+        head.innerText = "FUEL OVERCUT VALIDATED";
+        sub.innerText = `Extreme fuel saving active. You are bleeding ${fuelSavePenaltySec.toFixed(2)}s per lap, but avoiding an extra pit stop will net a massive track position gain.`;
+        box.style.borderColor = "#3b82f655";
+    } else if (trackType === "road" || trackType === "short") {
+        head.innerText = "UNDERCUT ADVANTAGE DETECTED";
+        sub.innerText = `High tire wear environment. Time lost to old tires overtakes pit delta by Lap ${optimalWindowLap}. Pitting early on the green flag cycle yields massive lap time gains.`;
+        box.style.borderColor = "#10b98155";
+    } else {
+        head.innerText = "EXECUTE NEURAL OPTIMAL";
+        sub.innerText = "Telemetry indicates standard tire falloff. Pit within the fuel window and align with stage breaks to minimize green-flag time loss.";
+        box.style.borderColor = "#10b98155";
+    }
+}
+
+// Global Initialization
+window.onload = function() {
+    runNeuroSim();
+};
+// STRATEGY LAB PRO END
+</script>
 </body>
 </html>
