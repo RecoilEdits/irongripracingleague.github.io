@@ -90,6 +90,7 @@
             <a href="#live-data" class="sidebar-item"><i class="fas fa-terminal w-5"></i> Data Terminal</a>
             <a href="#schedule" class="sidebar-item"><i class="fas fa-calendar-alt w-5"></i> Schedule</a>
             <a href="#rules" class="sidebar-item"><i class="fas fa-gavel w-5"></i> IGRCC Rules</a>
+            <a href="#setup-guide" class="sidebar-item"><i class="fas fa-wrench w-5"></i> Setup Guide</a>
             <a href="#strategy-lab" class="sidebar-item"><i class="fas fa-microchip w-5"></i> Strategy Lab</a>
             <a href="#paint-schemes" class="sidebar-item"><i class="fas fa-palette w-5"></i> Paint Schemes</a>
             <a href="#streamers" class="sidebar-item"><i class="fas fa-video w-5"></i> Streamers</a>
@@ -391,6 +392,301 @@
     </div>
 </section>
 
+<section id="setup-guide" class="py-24 px-6 md:px-10 max-w-[1750px] mx-auto">
+    <div class="text-center mb-16 relative">
+        <h2 class="font-impact text-7xl md:text-9xl italic text-white mb-2 uppercase leading-none tracking-tighter drop-shadow-2xl">
+            Adjustment Up <span class="text-blue-500">Guide 1.0 Beta</span>
+        </h2>
+        <p class="text-zinc-500 text-[10px] md:text-xs font-black uppercase tracking-[0.5em] mb-4">Official Documentation For IGRL</p>
+        <div class="flex justify-center items-center gap-4">
+            <span class="bg-blue-500/10 text-blue-500 border border-blue-500/30 px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.3em] backdrop-blur-sm">
+                Handling Adjustments
+            </span>
+        </div>
+    </div>
+
+    <div class="glass rounded-[2rem] border border-zinc-800/50 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] backdrop-blur-md">
+        <div class="overflow-x-auto">
+            <table class="w-full min-w-[1250px] text-center border-collapse">
+                <thead>
+                    <tr class="border-b border-zinc-800">
+                        <th class="bg-blue-600 border-r border-zinc-800 text-white font-impact text-2xl italic p-4 text-left pl-8 w-[12%]">LEFT FRONT</th>
+                        <th colspan="2" class="bg-red-950/40 text-red-400 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Entry</th>
+                        <th colspan="2" class="bg-yellow-950/40 text-yellow-500 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Middle</th>
+                        <th colspan="2" class="bg-emerald-950/40 text-emerald-400 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Exit</th>
+                        
+                        <th class="bg-blue-600 border-x border-zinc-800 text-white font-impact text-2xl italic p-4 text-left pl-8 w-[12%]">RIGHT FRONT</th>
+                        <th colspan="2" class="bg-red-950/40 text-red-400 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Entry</th>
+                        <th colspan="2" class="bg-yellow-950/40 text-yellow-500 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Middle</th>
+                        <th colspan="2" class="bg-emerald-950/40 text-emerald-400 font-black uppercase tracking-[0.2em] text-[11px]">Exit</th>
+                    </tr>
+                    <tr class="bg-zinc-900/80 border-b border-zinc-800 text-[9px] font-black uppercase tracking-widest text-zinc-500">
+                        <th class="border-r border-zinc-800"></th>
+                        <th class="border-r border-zinc-800 py-1.5">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800"></th>
+                        <th class="border-r border-zinc-800">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800">Loose</th><th>Tight</th>
+                    </tr>
+                </thead>
+
+                <tbody class="text-white font-racing text-2xl">
+                    <tr class="hover:bg-white/[0.03] transition-colors border-b border-zinc-800/50">
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Spring</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Spring</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td>-</td>
+                    </tr>
+                    <tr class="hover:bg-white/[0.03] transition-colors border-b border-zinc-800/50">
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Bump</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Bump</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800"></td><td></td>
+                    </tr>
+                    <tr class="hover:bg-white/[0.03] transition-colors border-b border-zinc-800/50">
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Rebound</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Rebound</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800">-</td><td>+</td>
+                    </tr>
+                    <tr class="hover:bg-white/[0.03] transition-colors border-b border-zinc-800/50 bg-blue-500/[0.03]">
+                        <td class="font-bold text-blue-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Tire Pressure</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="font-bold text-blue-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Tire Pressure</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td>-</td>
+                    </tr>
+                    <tr class="hover:bg-white/[0.03] transition-colors bg-blue-500/[0.03]">
+                        <td class="font-bold text-blue-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Camber</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="font-bold text-blue-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Camber</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800">-</td><td>+</td>
+                    </tr>
+                </tbody>
+
+                <thead>
+                    <tr class="border-y border-zinc-800">
+                        <th class="bg-blue-600 border-r border-zinc-800 text-white font-impact text-2xl italic p-4 text-left pl-8 w-[12%]">LEFT REAR</th>
+                        <th colspan="2" class="bg-red-950/40 text-red-400 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Entry</th>
+                        <th colspan="2" class="bg-yellow-950/40 text-yellow-500 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Middle</th>
+                        <th colspan="2" class="bg-emerald-950/40 text-emerald-400 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Exit</th>
+                        
+                        <th class="bg-blue-600 border-x border-zinc-800 text-white font-impact text-2xl italic p-4 text-left pl-8 w-[12%]">RIGHT REAR</th>
+                        <th colspan="2" class="bg-red-950/40 text-red-400 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Entry</th>
+                        <th colspan="2" class="bg-yellow-950/40 text-yellow-500 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Middle</th>
+                        <th colspan="2" class="bg-emerald-950/40 text-emerald-400 font-black uppercase tracking-[0.2em] text-[11px]">Exit</th>
+                    </tr>
+
+                    <tr class="bg-zinc-900/80 border-b border-zinc-800 text-[9px] font-black uppercase tracking-widest text-zinc-500">
+                        <th class="border-r border-zinc-800"></th>
+                        <th class="border-r border-zinc-800 py-1.5">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800"></th>
+                        <th class="border-r border-zinc-800">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800">Loose</th><th>Tight</th>
+                    </tr>
+
+                </thead>
+
+                <tbody class="text-white font-racing text-2xl">
+                    <tr class="hover:bg-white/[0.03] transition-colors border-b border-zinc-800/50">
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Spring</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Spring</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800">-</td><td>+</td>
+                    </tr>
+                    <tr class="hover:bg-white/[0.03] transition-colors border-b border-zinc-800/50">
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Bump</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Bump</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800"></td><td></td>
+                    </tr>
+                    <tr class="hover:bg-white/[0.03] transition-colors border-b border-zinc-800/50">
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Rebound</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Rebound</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800"></td><td></td>
+                    </tr>
+                    <tr class="hover:bg-white/[0.03] transition-colors border-b border-zinc-800/50 bg-blue-500/[0.03]">
+                        <td class="font-bold text-blue-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Tire Pressure</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="font-bold text-blue-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Tire Pressure</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800">-</td><td>+</td>
+                    </tr>
+                    <tr class="hover:bg-white/[0.03] transition-colors bg-blue-500/[0.03]">
+                        <td class="font-bold text-blue-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Camber</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="font-bold text-blue-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Camber</td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800">-</td><td>+</td>
+                    </tr>
+                </tbody>
+
+                <thead>
+                    <tr class="bg-zinc-800/30 border-y border-zinc-800">
+                        <th class="border-r border-zinc-800"></th>
+                        <th colspan="2" class="bg-red-950/40 text-red-400 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Entry</th>
+                        <th colspan="2" class="bg-yellow-950/40 text-yellow-500 font-black uppercase tracking-[0.2em] text-[11px] border-r border-zinc-800">Middle</th>
+                        <th colspan="2" class="bg-emerald-950/40 text-emerald-400 font-black uppercase tracking-[0.2em] text-[11px]">Exit</th>
+                        <th colspan="7" class="bg-blue-600/10 text-blue-400 text-[11px] font-black uppercase tracking-widest italic">Core Setup Philosophy</th>
+                    </tr>
+                        <tr class="bg-zinc-900/80 border-b border-zinc-800 text-[9px] font-black uppercase tracking-widest text-zinc-500">
+                        <th class="border-r border-zinc-800"></th>
+                        <th class="border-r border-zinc-800 py-1.5">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th class="border-r border-zinc-800">Loose</th><th class="border-r border-zinc-800">Tight</th>
+                        <th colspan="7" class="bg-[#070707]  text-blue-400 text-[11px] font-black uppercase tracking-widest italic"></th>
+                    </tr>
+                </thead>
+
+                <tbody class="text-white font-racing text-2xl">
+                    <tr class="border-b border-zinc-800">
+                        <td class="font-bold text-blue-400 text-left pl-8 border-r border-zinc-800 bg-blue-900/10 text-[10px] font-inter uppercase tracking-widest">Front Sway Bar</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td colspan="7" rowspan="6" class="border-l border-zinc-800 bg-[#070707] p-8 align-top">
+                            <ul class="space-y-4 font-inter text-[11px] font-bold uppercase tracking-wider leading-relaxed text-zinc-400 text-left">
+                                <li class="flex items-start gap-3"><span class="text-blue-500 shrink-0">■</span> <span>Entry and middle issues start with <b class="text-white">RF spring</b></span></li>
+                                <li class="flex items-start gap-3"><span class="text-blue-500 shrink-0">■</span> <span>Exit issues start with <b class="text-white">RF rebound</b></span></li>
+                                <li class="flex items-start gap-3"><span class="text-blue-500 shrink-0">■</span> <span>Increase tire pressure & adjust camber until all 3 temps are close</span></li>
+                                <li class="flex items-start gap-3"><span class="text-blue-500 shrink-0">■</span> <span>Left side of tire should be a few degrees hotter</span></li>
+                                <li class="flex items-start gap-3"><span class="text-blue-500 shrink-0">■</span> <span>Bumpy tracks need <b class="text-yellow-500">softer springs</b></span></li>
+                                <li class="flex items-start gap-3"><span class="text-blue-500 shrink-0">■</span> <span class="italic text-zinc-500">"If it ain't wearing - it ain't working"</span></li>
+                                <li class="flex items-start gap-3 pt-4 border-t border-zinc-800/50"><span class="text-blue-500 shrink-0">■</span> <span>All 4 tires need to be working for max grip and pace</span></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-zinc-800">
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Wheel Lock</td>
+                        <td colspan="6" class="bg-zinc-900/50 text-[10px] text-zinc-500 font-black uppercase tracking-[0.3em]">Bigger # = more steering range</td>
+                    </tr>
+                    <tr class="border-b border-zinc-800">
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Brake Bias</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                    </tr>
+                    <tr class="border-b border-zinc-800 bg-blue-500/[0.03]">
+                        <td class="font-bold text-blue-400 text-left pl-8 border-r border-zinc-800 bg-blue-900/10 text-[10px] font-inter uppercase tracking-widest">Rear End Ratio</td>
+                        <td colspan="6" class="bg-blue-900/5 text-[10px] text-blue-400/60 font-black uppercase tracking-[0.2em]">Bigger # = more acceleration, less mph</td>
+                    </tr>
+                    <tr class="border-b border-zinc-800 bg-red-500/[0.03]">
+                        <td class="font-bold text-red-400 text-left pl-8 border-r border-zinc-800 bg-red-900/10 text-[10px] font-inter uppercase tracking-widest">Wedge</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                    </tr>
+                    <tr class="border-b border-zinc-800">
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Nose Weight</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                        <td class="border-r border-zinc-800">+</td><td class="border-r border-zinc-800">-</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Left Weight</td>
+                        <td colspan="6" class="bg-zinc-900/50 text-[10px] text-zinc-500 font-black uppercase tracking-[0.3em]">Always run 53% except road courses</td>
+                        <td colspan="7" rowspan="3" class="border-l border-zinc-800 bg-[#070707] p-8 align-top">
+                            <ul class="space-y-4 font-inter text-[11px] font-bold uppercase tracking-wider leading-relaxed text-zinc-400 text-left">
+                                <li class="flex items-start gap-3"><span class="text-blue-500 shrink-0">■</span> <span>Entry, Middle, and Exit are the 3 parts of a turn.</span></li>
+                                <li class="flex items-start gap-3"><span class="text-blue-500 shrink-0">■</span> <span>The columns list the <b class="text-white">problem</b> and the rows the <b class="text-white">setting</b>.</span></li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-blue-500 shrink-0">■</span> 
+                                    <span><b class="text-red-400">Loose:</b> rear hits wall first. <b class="text-emerald-400">Tight:</b> front hits wall first.</span>
+                                </li>
+                                <li class="mt-4 pt-4 border-t border-zinc-800/50 text-yellow-500 flex items-center gap-2">
+                                    <i class="fas fa-lightbulb"></i> 
+                                    <span>Example: Car is loose on entry = Increase RF spring</span>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="border-y border-zinc-800 bg-blue-500/[0.03]">
+                        <td class="font-bold text-blue-400 text-left pl-8 border-r border-zinc-800 bg-blue-900/10 text-[10px] font-inter uppercase tracking-widest">Steering Offset</td>
+                        <td colspan="6" class="bg-blue-900/5 text-[10px] text-blue-400/60 font-black uppercase tracking-[0.2em]">Increase if the car pulls left on the straights</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-zinc-400 text-left pl-8 border-r border-zinc-800 bg-zinc-900/30 text-[10px] font-inter uppercase tracking-widest">Rear Sway Bar</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                        <td class="border-r border-zinc-800">-</td><td class="border-r border-zinc-800">+</td>
+                        <td class="border-r border-zinc-800"></td><td class="border-r border-zinc-800"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-12 glass border border-zinc-800 p-10 rounded-[2.5rem] bg-gradient-to-br from-blue-600/10 via-transparent to-transparent flex flex-col lg:flex-row gap-10 items-center shadow-2xl backdrop-blur-xl">
+        <div class="w-24 h-24 rounded-3xl border-2 border-blue-500/20 flex items-center justify-center bg-black/60 shrink-0 rotate-3 shadow-blue-500/10 shadow-lg">
+            <i class="fas fa-stopwatch text-4xl text-blue-500"></i>
+        </div>
+        <div class="flex-1">
+            <h4 class="font-impact text-4xl text-white italic mb-6 uppercase tracking-widest">Pit Stop Adjustments</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-black/50 border border-zinc-800/50 p-6 rounded-2xl hover:border-blue-500/30 transition-all group">
+                    <strong class="text-blue-500 block mb-2 text-xs font-black uppercase tracking-widest group-hover:translate-x-1 transition-transform">Tire Pressure</strong>
+                    <p class="text-[11px] text-zinc-400 font-bold uppercase tracking-wider leading-relaxed">
+                        Adjust based on chart to shift handling. Reduce for overall grip, especially on short runs.
+                    </p>
+                </div>
+                <div class="bg-black/50 border border-zinc-800/50 p-6 rounded-2xl border-t-4 border-t-red-500 hover:bg-red-500/[0.02] transition-all">
+                    <strong class="text-red-500 block mb-2 text-xs font-black uppercase tracking-widest">Wedge</strong>
+                    <p class="text-[11px] text-zinc-400 font-bold uppercase tracking-wider leading-relaxed">
+                        Reduce if tight, increase if loose. Primary mid-race adjustment.
+                    </p>
+                </div>
+                <div class="bg-black/50 border border-zinc-800/50 p-6 rounded-2xl border-t-4 border-t-yellow-500 hover:bg-yellow-500/[0.02] transition-all">
+                    <strong class="text-yellow-500 block mb-2 text-xs font-black uppercase tracking-widest">Fuel Weight</strong>
+                    <p class="text-[11px] text-zinc-400 font-bold uppercase tracking-wider leading-relaxed">
+                        Less fuel increases nose weight, causing the car to feel significantly tighter.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <section id="strategy-lab" class="py-24 px-10 max-w-[1700px] mx-auto border-t border-zinc-900 text-zinc-300">
     <div class="flex flex-col xl:flex-row justify-between items-start mb-16 gap-12">
